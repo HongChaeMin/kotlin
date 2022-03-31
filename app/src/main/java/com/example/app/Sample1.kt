@@ -100,3 +100,28 @@ fun checkNum(score : Int) {
 // java function return void 는 Statement 임
 // if 문도 statement 였는데 코틀린에서는 if 문을 expression으로 사용할 수 있다
 
+// 5. Array and List
+
+// Array : 기본적으로 메모리 할당되서 크기 지정 필요
+
+// List
+// - List : 수정 불가
+// - MutableList : 수정 가능
+
+fun array() {
+    val array = arrayOf(1, 2, 3);
+    val list = listOf(1, 2, 3);
+
+    val array2 = arrayOf(1, "a", 3.14f);
+    val list2 = listOf(1, "a", 3.14f);
+
+    array[0] = 3;
+    // list[0] = 2; 수정 불가능
+    var result = list[0];
+
+    val arrayList = arrayListOf<Int>(); // 주소 값이 바뀌지 않으니 val 도 가능한거임
+    arrayList.add(10);
+    arrayList.add(20);
+
+    // arrayList = arrayListOf<Int>(); 주소값 재할당해서 에러남ㅎ
+}
