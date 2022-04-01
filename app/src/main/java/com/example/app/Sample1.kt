@@ -1,5 +1,7 @@
 package com.example.app
 
+import java.util.*
+
 fun main() {
 
     // 3. String Template
@@ -20,6 +22,8 @@ fun main() {
     checkNum(40);
 
     forAndWhile();
+
+    nullCheck();
 
 }
 
@@ -158,6 +162,45 @@ fun forAndWhile() {
     while(index < 10) {
         println("current index : $index");
         index++;
+    }
+
+}
+
+// 7. Nullable / NonNull
+// - 기본적으로 NonNull 타입임
+// - 자료형 뒤에 ? 을 붙어주면 Nullable 타입이 됨
+fun nullCheck() {
+    // NPE : Null Pointer Exception
+
+    var name: String = "minHong";
+
+    var nullName: String? = null;
+
+    // toUpperCase()가 없음
+    var nameInUpperCase = name.uppercase(Locale.getDefault());
+
+    // 변수 뒤에 ?를 붙여주면 null 일 경우 그대로 null 반환
+    var nullNameInUpperCase = nullName?.uppercase(Locale.getDefault());
+
+    // ?:
+    val lastName : String? = null;
+    val fullName = name + " " + (lastName ?: "No lastName"); // 약간 삼항연산자같음 null 이면? : ~~
+    val mListName = lastName ?: throw IllegalArgumentException("No Last Name");
+
+    println(fullName);
+
+    // !!
+    ignoreNulls("str");
+
+}
+
+fun ignoreNulls(str : String?) {
+    val nNotNull : String = str!!; // 이거 절대로 null 이 아니니 안심해!!
+    val upper = nNotNull.uppercase(Locale.getDefault());
+
+    val email : String? = "coals0329@cocen.com";
+    email?.let { // .let : 람다식 내부로 옮겨줌
+        println("my email is $email");
     }
 
 }
