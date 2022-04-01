@@ -19,6 +19,8 @@ fun main() {
 
     checkNum(40);
 
+    forAndWhile();
+
 }
 
 // 1. 함수
@@ -122,6 +124,40 @@ fun array() {
     val arrayList = arrayListOf<Int>(); // 주소 값이 바뀌지 않으니 val 도 가능한거임
     arrayList.add(10);
     arrayList.add(20);
+    arrayList[0] = 20;
 
-    // arrayList = arrayListOf<Int>(); 주소값 재할당해서 에러남ㅎ
+    // arrayList = arrayListOf<Int>(); 주소값 재할당해서 에러남
+}
+
+// 6. For / While
+fun forAndWhile() {
+    val students = arrayListOf("minHong", "ChaeMin", "Hong");
+
+    for(name in students) {
+        println(name);
+    }
+
+    var sum : Int = 0;
+    for (i in 1 .. 10 step 2) { // 1부터 10까지 2씩 뛰어서 돈다
+        sum += i;
+    }
+
+    for (i in 10 downTo 1) { // 10부터 1까지 줄어든다
+        sum += i;
+    }
+
+    for (i in 1 until 100) { // 1부터 99까지
+        sum += i;
+    }
+
+    for ((index, name) in students.withIndex()) { // 인덱스와 같이
+        println("${index}번째 학생 : ${name}");
+    }
+
+    var index = 0;
+    while(index < 10) {
+        println("current index : $index");
+        index++;
+    }
+
 }
