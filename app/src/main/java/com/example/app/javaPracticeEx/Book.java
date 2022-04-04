@@ -17,7 +17,7 @@ public class Book implements IdProvider, NameProvider{
 
     @Override
     public int getId() {
-        return 444;
+        return IdProvider.id;
     }
 
     @Override
