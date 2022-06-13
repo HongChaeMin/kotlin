@@ -6,6 +6,7 @@ plugins {
     kotlin("jvm") version "1.6.21"
     kotlin("plugin.spring") version "1.6.21"
     kotlin("plugin.jpa") version "1.6.21"
+    kotlin("plugin.allopen") version "1.4.32"
 }
 
 group = "com.example"
@@ -26,6 +27,15 @@ dependencies {
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     runtimeOnly("com.h2database:h2")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+}
+
+allOpen {
+    annotation("javax.persistence.Entity")
+    annotation("javax.persistence.Embeddable")
+    annotation("javax.persistence.MappedSuperclass")
+    annotation("javax.persistence.EntityListeners")
+    annotation("org.springframework.data.annotation.CreatedDate")
+    annotation("org.springframework.data.jpa.domain.support.AuditingEntityListener")
 }
 
 tasks.withType<KotlinCompile> {
