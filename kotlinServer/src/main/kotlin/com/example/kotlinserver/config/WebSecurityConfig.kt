@@ -18,7 +18,7 @@ class SecurityConfiguration(private val jwtProvider: JwtProvider) {
         http.cors().disable()
         http.csrf().disable()
         http.formLogin().disable()
-        http.addFilterBefore(JwtAuthenticationFilter(jwtProvider), UsernamePasswordAuthenticationFilter::class.java)
+        // http.addFilterBefore(JwtAuthenticationFilter(jwtProvider), UsernamePasswordAuthenticationFilter::class.java)
         return http.build()
     }
 
