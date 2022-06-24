@@ -1,4 +1,5 @@
-package com.example.kotlinserver.error
+package com.example.kotlinserver.util.error
 
-class ErrorResponse(private val errorCode: ErrorCode) : RuntimeException(errorCode.message) {
-}
+class MemberException(
+        val errorCode: ErrorCode
+) : RuntimeException(errorCode.message)

@@ -1,5 +1,5 @@
 package com.example.kotlinserver.domain
 
 enum class Gender {
-    FEMALE, MAN
+    FEMALE, MALE
 }

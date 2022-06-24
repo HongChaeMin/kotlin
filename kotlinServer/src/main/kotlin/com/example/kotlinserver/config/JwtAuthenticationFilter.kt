@@ -1,7 +1,7 @@
 package com.example.kotlinserver.config
 
-import com.example.kotlinserver.error.ErrorCode
-import com.example.kotlinserver.error.ErrorResponse
+import com.example.kotlinserver.util.error.ErrorCode
+import com.example.kotlinserver.util.error.MemberException
 import io.jsonwebtoken.ExpiredJwtException
 import org.springframework.web.filter.GenericFilterBean
 import javax.servlet.FilterChain
@@ -27,6 +27,6 @@ class JwtAuthenticationFilter(private val jwtProvider: JwtProvider) : GenericFil
 
     // 토큰의 유효성 검증을 통과하지 못할 경우 에러 코드 반환
     private fun jwtFailureTask(e: ErrorCode){
-        throw ErrorResponse(e)
+        throw MemberException(e)
     }
 }
