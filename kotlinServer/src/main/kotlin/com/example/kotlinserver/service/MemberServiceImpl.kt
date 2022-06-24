@@ -12,8 +12,8 @@ class MemberServiceImpl(private val memberRepository: MemberRepository) : Member
 
     override fun registerMember(memberRegisterRequestDTO: MemberRegisterRequestDTO): MemberResponseDTO {
         checkUserNickname(memberRegisterRequestDTO.userNickName)
-        val saveMember = memberRepository.save(memberRegisterRequestDTO.of())
-        return saveMember.of();
+        val saveMember = memberRepository.save(memberRegisterRequestDTO.toEntity())
+        return saveMember.toResponseDTO();
     }
 
     private fun checkUserNickname(userNickname: String) {

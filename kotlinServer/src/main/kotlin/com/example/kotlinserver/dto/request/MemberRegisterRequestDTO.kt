@@ -8,7 +8,7 @@ data class MemberRegisterRequestDTO (
     val age: Int,
     val gender: Gender
 ) {
-    fun of(): Member {
+    fun toEntity(): Member {
         return Member(
             userNickName = this.userNickName,
             age = this.age,

@@ -16,7 +16,7 @@ class Member (
     var gender: Gender
 
 ) : BaseEntity() {
-    fun of(): MemberResponseDTO {
+    fun toResponseDTO(): MemberResponseDTO {
         return MemberResponseDTO(
                 id = this.id,
                 userNickName = this.userNickName,
