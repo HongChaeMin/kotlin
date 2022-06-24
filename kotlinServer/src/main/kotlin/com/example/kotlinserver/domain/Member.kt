@@ -24,4 +24,7 @@ class Member (
                 gender = this.gender
         )
     }
+
+    // fun change
+
 }
