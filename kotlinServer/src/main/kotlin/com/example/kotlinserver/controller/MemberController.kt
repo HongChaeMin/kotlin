@@ -28,9 +28,14 @@ class MemberController(private val memberService: MemberService) {
     }
 
     @PatchMapping(value = ["/member/{memberId}"], produces = ["application/json"])
-    fun updateMember(@PathVariable memberId: Long, requestDTO: MemberDTO): ApiResponse.Success<MemberResponseDTO>{
+    fun updateMember(@PathVariable memberId: Long, requestDTO: MemberDTO): ApiResponse.Success<MemberResponseDTO> {
         val updateMember = memberService.updateMember(memberId, requestDTO)
         return ApiResponse.Success(updateMember, "사용자 수정이 완료되었습니다.")
     }
 
+    @DeleteMapping(value = ["/member/{memberId}"], produces = ["application/json"])
+    fun deleteMember(@PathVariable memberId: Long): ApiResponse.Success<String> {
+        memberService.deleteMember(memberId)
+        return ApiResponse.Success("OK", "사용자 삭제가 완료되었습니다.")
+    }
 }

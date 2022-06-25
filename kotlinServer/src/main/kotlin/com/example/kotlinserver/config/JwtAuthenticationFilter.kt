@@ -26,7 +26,7 @@ class JwtAuthenticationFilter(private val jwtProvider: JwtProvider) : GenericFil
     }
 
     // 토큰의 유효성 검증을 통과하지 못할 경우 에러 코드 반환
-    private fun jwtFailureTask(e: ErrorCode){
+    private fun jwtFailureTask(e: ErrorCode) {
         throw MemberException(e)
     }
 }

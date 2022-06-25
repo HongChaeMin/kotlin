@@ -6,8 +6,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.builders.WebSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer
 import org.springframework.security.web.SecurityFilterChain
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
-
 
 @Configuration
 class SecurityConfiguration(private val jwtProvider: JwtProvider) {
@@ -24,9 +22,9 @@ class SecurityConfiguration(private val jwtProvider: JwtProvider) {
 
     @Bean
     fun webSecurityCustomizer(): WebSecurityCustomizer {
-        return WebSecurityCustomizer { web: WebSecurity -> web.ignoring()
+        return WebSecurityCustomizer { web: WebSecurity ->
+            web.ignoring()
                 .antMatchers("/h2-console/**", "/sign-up", "/sign-in", "/don't-pass-filter")
-            }
+        }
     }
-
 }

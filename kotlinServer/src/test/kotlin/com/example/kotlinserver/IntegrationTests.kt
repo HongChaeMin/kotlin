@@ -1,6 +1,8 @@
 package com.example.kotlinserver
 
 import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.mockito.junit.jupiter.MockitoExtension
@@ -9,9 +11,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.junit.jupiter.SpringExtension
 import org.springframework.test.web.servlet.MockMvc
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.BeforeEach
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.test.web.servlet.get
 
 @AutoConfigureMockMvc
@@ -31,7 +30,7 @@ class IntegrationTests(@Autowired val mockMvc: MockMvc) {
 
     @Test
     fun `test for test`() {
-        assertEquals(4 + 1, 5);
+        assertEquals(4 + 1, 5)
     }
 
     @Test
@@ -48,5 +47,4 @@ class IntegrationTests(@Autowired val mockMvc: MockMvc) {
             status { isNotFound() }
         }
     }
-
 }

@@ -3,7 +3,7 @@ package com.example.kotlinserver.dto
 import com.example.kotlinserver.domain.Gender
 import com.example.kotlinserver.domain.Member
 
-data class MemberDTO (
+data class MemberDTO(
     val userNickName: String,
     val age: Int,
     val gender: Gender

@@ -11,7 +11,6 @@ class TestController {
     @GetMapping("/test")
     fun hello(model: Model): String {
         model["massage"] = "it's test controller."
-        return "hello";
+        return "hello"
     }
-
 }

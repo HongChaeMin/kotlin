@@ -3,8 +3,8 @@ package com.example.kotlinserver.util.error
 import org.springframework.http.HttpStatus
 
 enum class ErrorCode(
-        val status: HttpStatus,
-        val message: String
+    val status: HttpStatus,
+    val message: String
 ) {
 
     EXPIRED_TOKEN_ERROR(HttpStatus.NOT_ACCEPTABLE, "유효하지 않은 토큰입니다."),
@@ -13,5 +13,4 @@ enum class ErrorCode(
 
     EXIST_NICK_NAME(HttpStatus.BAD_REQUEST, "이미 존재하는 닉네임입니다"),
     NOT_EXIST_MEMBER(HttpStatus.BAD_REQUEST, "존재하지 않은 사용자입니다.")
-
 }

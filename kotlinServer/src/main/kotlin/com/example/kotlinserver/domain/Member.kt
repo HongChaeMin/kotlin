@@ -4,7 +4,7 @@ import com.example.kotlinserver.dto.response.MemberResponseDTO
 import javax.persistence.*
 
 @Entity
-class Member (
+class Member(
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null,
@@ -18,13 +18,12 @@ class Member (
 ) : BaseEntity() {
     fun toResponseDTO(): MemberResponseDTO {
         return MemberResponseDTO(
-                id = this.id,
-                userNickName = this.userNickName,
-                age = this.age,
-                gender = this.gender
+            id = this.id,
+            userNickName = this.userNickName,
+            age = this.age,
+            gender = this.gender
         )
     }
 
     // fun change
-
 }

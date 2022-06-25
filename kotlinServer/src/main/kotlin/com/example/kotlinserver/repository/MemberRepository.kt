@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository
 import java.util.*
 
 interface MemberRepository : JpaRepository<Member, Long> {
-    fun findByUserNickName(userNickName: String) : Optional<Member>
+    fun findByUserNickName(userNickName: String): Optional<Member>
 }

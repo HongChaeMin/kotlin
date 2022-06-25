@@ -22,18 +22,18 @@ class JwtProvider() {
         claims["userPk"] = userPk // 정보는 key / value 쌍으로 저장된다.
         val now = Date()
         return Jwts.builder()
-                .setClaims(claims) // 정보 저장
-                .setIssuedAt(now) // 토큰 발행 시간 정보
-                .setExpiration(Date(now.time + tokenValidTime)) // set Expire Time
-                .signWith(secretKey) // Key 세팅
-                .compact()
+            .setClaims(claims) // 정보 저장
+            .setIssuedAt(now) // 토큰 발행 시간 정보
+            .setExpiration(Date(now.time + tokenValidTime)) // set Expire Time
+            .signWith(secretKey) // Key 세팅
+            .compact()
     }
 
     // 토큰에서 회원 정보 추출
     fun getUserPk(token: String): String {
         return Jwts.parserBuilder()
-                .setSigningKey(secretKey).build()
-                .parseClaimsJwt(token).body.subject
+            .setSigningKey(secretKey).build()
+            .parseClaimsJwt(token).body.subject
     }
 
     // Request의 Header에서 token 값을 가져옵니다. "Authorization" : "TOKEN값'

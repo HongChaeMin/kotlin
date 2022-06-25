@@ -8,4 +8,5 @@ interface MemberService {
     fun findMembers(): List<MemberResponseDTO>
     fun findMember(memberId: Long): MemberResponseDTO
     fun updateMember(memberId: Long, requestDTO: MemberDTO): MemberResponseDTO
+    fun deleteMember(memberId: Long)
 }
