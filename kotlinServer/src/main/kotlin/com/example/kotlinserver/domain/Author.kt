@@ -1,6 +1,5 @@
 package com.example.kotlinserver.domain
 
-import com.example.kotlinserver.domain.Gender
 import com.example.kotlinserver.domain.book.Book
 import com.vladmihalcea.hibernate.type.json.JsonType
 import org.hibernate.annotations.Type
@@ -13,7 +12,7 @@ import javax.persistence.Id
 
 @Entity
 @TypeDef(name = "json", typeClass = JsonType::class)
-class Author (
+class Author(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
     val name: String,
@@ -23,4 +22,4 @@ class Author (
     @Type(type = "json")
     @Column(columnDefinition = "json")
     val books: ArrayList<Book>
-    )
+)
