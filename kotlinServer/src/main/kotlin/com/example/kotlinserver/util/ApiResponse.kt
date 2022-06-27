@@ -1,7 +1,7 @@
 package com.example.kotlinserver.util
 
 // https://www.geeksforgeeks.org/how-to-handle-api-responses-success-error-in-android/
-sealed class ApiResponse<T> (
+sealed class ApiResponse<T>(
     val data: T? = null,
     val message: String? = null
 ) {

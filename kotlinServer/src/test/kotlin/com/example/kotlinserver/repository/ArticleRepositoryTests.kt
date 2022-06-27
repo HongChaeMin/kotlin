@@ -17,7 +17,10 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 @AutoConfigureMockMvc
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ExtendWith(SpringExtension::class, MockitoExtension::class)
-class ArticleRepositoryTests(@Autowired val memberRepository: MemberRepository, @Autowired val articleRepository: ArticleRepository) {
+class ArticleRepositoryTests(
+    @Autowired val memberRepository: MemberRepository,
+    @Autowired val articleRepository: ArticleRepository
+) {
 
     val member = Member(null, "Hannar", 20, Gender.FEMALE)
 
