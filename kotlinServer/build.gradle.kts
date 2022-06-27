@@ -17,6 +17,9 @@ plugins {
     // https://cheese10yun.github.io/ktlint/
     // https://msyu1207.tistory.com/entry/%EA%B9%94%EB%81%94%ED%95%9C-%ED%8F%AC%EB%A7%B7%ED%8C%85%EC%9D%84-%EC%9C%84%ED%95%9C-ktlint-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0-feat-kotlin
     // https://seosh817.tistory.com/154
+
+    // git hooks error
+    // https://github.com/JLLeitschuh/ktlint-gradle/issues/562
     id("org.jlleitschuh.gradle.ktlint") version "10.2.1"
 
     kotlin("jvm") version "1.6.21"
