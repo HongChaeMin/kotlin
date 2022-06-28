@@ -2,7 +2,6 @@ package com.example.kotlinserver.repository
 
 import com.example.kotlinserver.domain.Gender
 import com.example.kotlinserver.domain.Member
-import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test

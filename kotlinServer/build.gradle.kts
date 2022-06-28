@@ -1,5 +1,4 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import java.util.regex.Pattern.compile
 
 buildscript {
     repositories {
@@ -30,7 +29,7 @@ plugins {
 }
 
 group = "com.example"
-version = "0.0.1-SNAPSHOT"
+version = "5.3.1"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
@@ -51,6 +50,10 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("javax.validation:validation-api:2.0.1.Final")
+
+    // kotlin test
+    testImplementation("io.kotest:kotest-runner-junit5:$version")
+    testImplementation("io.mockk:mockk:1.12.4")
 
     // database
     runtimeOnly("com.h2database:h2") // test

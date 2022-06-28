@@ -39,8 +39,8 @@ class AuthorServiceImpl(private val authorRepository: AuthorRepository) : Author
 
     @Transactional
     override fun deleteAuthor(authorId: Long) {
-        val author = (authorRepository.findByIdOrNull(authorId)
-            ?: throw MyException(ErrorCode.NOT_EXIST_AUTHOR))
+        val author = authorRepository.findByIdOrNull(authorId)
+            ?: throw MyException(ErrorCode.NOT_EXIST_AUTHOR)
         authorRepository.delete(author)
     }
 }
