@@ -1,6 +1,7 @@
 package com.example.kotlinserver.domain
 
-import com.example.kotlinserver.dto.response.MemberResponseDTO
+import com.example.kotlinserver.dto.member.MemberDTO
+import com.example.kotlinserver.dto.member.response.MemberResponseDTO
 import javax.persistence.Entity
 import javax.persistence.EnumType
 import javax.persistence.Enumerated
@@ -12,13 +13,13 @@ import javax.persistence.Id
 class Member(
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long? = null,
+    private val id: Long? = null,
 
-    var userNickName: String,
-    var age: Int,
+    private var userNickName: String,
+    private var age: Int,
 
     @Enumerated(EnumType.STRING)
-    var gender: Gender
+    private var gender: Gender
 
 ) : BaseEntity() {
     fun toResponseDTO(): MemberResponseDTO {
@@ -30,5 +31,9 @@ class Member(
         )
     }
 
-    // fun change
+    fun changeInfo(requestDTO: MemberDTO) {
+        userNickName = requestDTO.userNickName
+        age = requestDTO.age
+        gender = requestDTO.gender
+    }
 }

@@ -1,7 +1,7 @@
-package com.example.kotlinserver.service
+package com.example.kotlinserver.service.member
 
-import com.example.kotlinserver.dto.MemberDTO
-import com.example.kotlinserver.dto.response.MemberResponseDTO
+import com.example.kotlinserver.dto.member.MemberDTO
+import com.example.kotlinserver.dto.member.response.MemberResponseDTO
 
 interface MemberService {
     fun registerMember(memberRegisterRequestDTO: MemberDTO): MemberResponseDTO

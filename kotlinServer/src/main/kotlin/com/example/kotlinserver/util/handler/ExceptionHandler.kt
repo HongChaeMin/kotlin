@@ -1,7 +1,7 @@
 package com.example.kotlinserver.util.handler
 
 import com.example.kotlinserver.util.ApiResponse
-import com.example.kotlinserver.util.error.MemberException
+import com.example.kotlinserver.util.error.MyException
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RestControllerAdvice
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice
 @RestControllerAdvice
 class ExceptionHandler() {
 
-    @ExceptionHandler(MemberException::class)
-    fun handleMemberException(e: MemberException): ApiResponse.Error<HttpStatus> {
+    @ExceptionHandler(MyException::class)
+    fun handleMemberException(e: MyException): ApiResponse.Error<HttpStatus> {
         return ApiResponse.Error(e.errorCode.status, e.message)
     }
 }

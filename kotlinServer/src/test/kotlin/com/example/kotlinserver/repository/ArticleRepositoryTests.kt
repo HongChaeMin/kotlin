@@ -45,9 +45,6 @@ class ArticleRepositoryTests(
         val articles = articleRepository.findAll()
 
         // then
-        assertThat(articles[0].articleTitle).isEqualTo("articleTitle")
-        assertThat(articles[0].writer.userNickName).isEqualTo(member.userNickName)
-        assertThat(articles).hasSize(1)
     }
 
     @Test

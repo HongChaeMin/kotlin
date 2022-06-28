@@ -1,6 +1,6 @@
 package com.example.kotlinserver
 
-import com.example.kotlinserver.dto.MemberDTO
+import com.example.kotlinserver.dto.member.MemberDTO
 import com.example.kotlinserver.util.ApiResponse
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.ui.Model

@@ -1,6 +1,7 @@
 package com.example.kotlinserver.domain
 
-import com.example.kotlinserver.domain.book.Book
+import com.example.kotlinserver.dto.author.AuthorDTO
+import com.example.kotlinserver.dto.author.BookDTO
 import com.vladmihalcea.hibernate.type.json.JsonType
 import org.hibernate.annotations.Type
 import org.hibernate.annotations.TypeDef
@@ -14,12 +15,28 @@ import javax.persistence.Id
 @TypeDef(name = "json", typeClass = JsonType::class)
 class Author(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
-    val name: String,
-    val gender: Gender,
-    val age: Int,
+    private val id: Long? = null,
+    private val name: String,
+    private val gender: Gender,
+    private val age: Int,
 
     @Type(type = "json")
     @Column(columnDefinition = "json")
-    val books: ArrayList<Book>
-)
+    private var books: List<Book>
+
+) : BaseEntity() {
+
+    fun toAuthorDto(): AuthorDTO {
+        return AuthorDTO(
+            id = this.id,
+            name = this.name,
+            gender = this.gender,
+            age = this.age,
+            books = this.books.map { book -> book.toBookDto() }
+        )
+    }
+
+    fun changeBooks(requestDTO: BookDTO) {
+        books = listOf(requestDTO.toEntity())
+    }
+}

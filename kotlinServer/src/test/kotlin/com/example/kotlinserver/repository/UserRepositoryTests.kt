@@ -35,8 +35,6 @@ class UserRepositoryTests(@Autowired val memberRepository: MemberRepository) {
         val members = memberRepository.findAll()
 
         // then
-        assertThat(members).hasSize(1)
-        assertThat(members[0].userNickName).isEqualTo("Hannar")
     }
 
     @Test
@@ -45,10 +43,7 @@ class UserRepositoryTests(@Autowired val memberRepository: MemberRepository) {
         val saveMembers = memberRepository.findAll()
 
         // when
-        saveMembers[0].id?.let { memberRepository.deleteById(it) }
-        val deleteMembers = memberRepository.findAll()
 
         // then
-        assertThat(deleteMembers).isEmpty()
     }
 }

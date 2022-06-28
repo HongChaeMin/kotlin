@@ -1,5 +1,5 @@
 package com.example.kotlinserver.util.error
 
-class MemberException(
+class MyException(
     val errorCode: ErrorCode
 ) : RuntimeException(errorCode.message)

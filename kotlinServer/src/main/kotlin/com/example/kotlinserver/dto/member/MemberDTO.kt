@@ -1,4 +1,4 @@
-package com.example.kotlinserver.dto
+package com.example.kotlinserver.dto.member
 
 import com.example.kotlinserver.domain.Gender
 import com.example.kotlinserver.domain.Member
