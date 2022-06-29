@@ -21,20 +21,25 @@ class AuthorServiceTests : BehaviorSpec({
     val authorRepository = mockk<AuthorRepository>(relaxed = true, relaxUnitFun = true)
     val authorService: AuthorService = AuthorServiceImpl(authorRepository)
 
-    Given("author가 한 명 있는 상태에서") {
+    Given("author 데이터가 단건만 존재하는 상태에서") {
         val author: AuthorDTO = getAuthorDTO(1)
         every { authorService.registerAuthor(author) } returns author
 
+        When("저장된 author를 단건 조회했을 때") {
+            val result = getAuthorDTO(1)
+            every { author.id?.let { authorService.findAuthor(it) } } returns result
+
+            Then("저장한 author와 조회한 author가 같아야 한다") {
+                result shouldBe author
+            }
+        }
+
         When("모든 author list 를 조회했을 때") {
-            val result = listOf<AuthorDTO>()
+            val result = listOf(author)
             every { authorService.findAuthors() } returns result
 
             Then("list size 는 1개여야 한다") {
                 result.size shouldBe 1
-            }
-
-            Then("list의 첫번째 author는 Hannah1 이여야한다") {
-                result[0].name shouldBe "Hannah1"
             }
         }
     }
