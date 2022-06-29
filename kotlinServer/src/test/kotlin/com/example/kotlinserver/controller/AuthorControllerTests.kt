@@ -3,8 +3,11 @@ package com.example.kotlinserver.controller
 import com.example.kotlinserver.domain.Gender
 import com.example.kotlinserver.dto.author.AuthorDTO
 import com.example.kotlinserver.dto.author.BookDTO
+import com.example.kotlinserver.repository.AuthorRepository
+import com.example.kotlinserver.service.author.AuthorService
 import com.example.kotlinserver.util.ApiResponse
 import com.fasterxml.jackson.databind.ObjectMapper
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
@@ -17,27 +20,23 @@ import org.springframework.test.web.servlet.get
 @AutoConfigureMockMvc
 class AuthorControllerTests(
     @Autowired val mockMvc: MockMvc,
-    @Autowired val objectMapper: ObjectMapper
+    @Autowired val objectMapper: ObjectMapper,
+    @Autowired val authorService: AuthorService
 ) {
+
 
     // 통합 테스트
 
+    @BeforeEach
+    fun init() {
+        authorService.registerAuthor(getAuthorDTO())
+    }
+
     @Test
     fun `find one author`() {
-        val authorDTO = AuthorDTO(
-            id = 6L,
-            name = "Hannah1",
-            gender = Gender.FEMALE,
-            age = 21,
-            books = listOf(
-                BookDTO("string-id-1", "title1", 12900),
-                BookDTO("string-id-1", "title1", 12900),
-                BookDTO("string-id-1", "title1", 12900)
-            )
-        )
-        val success = ApiResponse.Success(authorDTO, "작가 & 책 목록입니다.")
+        val success = ApiResponse.Success(getAuthorDTO(), "작가 & 책 목록입니다.")
 
-        mockMvc.get("/author/6")
+        mockMvc.get("/author/1")
             .andDo { print() }
             .andExpect {
                 status { isOk() }
@@ -46,5 +45,19 @@ class AuthorControllerTests(
                     json(objectMapper.writeValueAsString(success))
                 }
             }
+    }
+
+    val getAuthorDTO: () -> AuthorDTO = {
+        AuthorDTO(
+            id = 1L,
+            name = "Hannah",
+            gender = Gender.FEMALE,
+            age = 20,
+            books = listOf(
+                BookDTO("string-id-1", "title1", 12900),
+                BookDTO("string-id-2", "title2", 13900),
+                BookDTO("string-id-3", "title3", 14900)
+            )
+        )
     }
 }
