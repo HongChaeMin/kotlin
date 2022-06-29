@@ -8,36 +8,39 @@ import com.example.kotlinserver.service.author.AuthorService
 import com.example.kotlinserver.service.author.AuthorServiceImpl
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.shouldBe
+import io.mockk.clearAllMocks
 import io.mockk.every
 import io.mockk.mockk
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 
 class AuthorServiceTests : BehaviorSpec({
 
-    val authorRepository = mockk<AuthorRepository>()
+    afterContainer {
+        clearAllMocks()
+    }
+
+    val authorRepository = mockk<AuthorRepository>(relaxed = true, relaxUnitFun = true)
     val authorService: AuthorService = AuthorServiceImpl(authorRepository)
 
-    // 단위 테스트
+    Given("author가 한 명 있는 상태에서") {
+        val author: AuthorDTO = getAuthorDTO(1)
+        every { authorService.registerAuthor(author) } returns author
 
-    Given("register author") {
-        val author = getAuthorDTO(1)
+        When("모든 author list 를 조회했을 때") {
+            val result = listOf<AuthorDTO>()
+            every { authorService.findAuthors() } returns result
 
-        every { authorService.registerAuthor(ofType(AuthorDTO::class)) } returns author
+            Then("list size 는 1개여야 한다") {
+                result.size shouldBe 1
+            }
 
-        When("find one author") {
-            val result = withContext(Dispatchers.IO) {
-                authorRepository.findByName(author.name)
-            }.get().toAuthorDto()
-            Then("equals author") {
-                result.name shouldBe author.name
+            Then("list의 첫번째 author는 Hannah1 이여야한다") {
+                result[0].name shouldBe "Hannah1"
             }
         }
     }
-
 })
 
-val getAuthorDTO : (Int) -> AuthorDTO = {
+val getAuthorDTO: (Int) -> AuthorDTO = {
     AuthorDTO(
         id = it + 0L,
         name = "Hannah$it",

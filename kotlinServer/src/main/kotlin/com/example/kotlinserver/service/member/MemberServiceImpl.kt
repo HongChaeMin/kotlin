@@ -33,7 +33,7 @@ class MemberServiceImpl(private val memberRepository: MemberRepository) : Member
     @Transactional
     override fun updateMember(memberId: Long, requestDTO: MemberDTO): MemberResponseDTO {
         val findMember = memberRepository.findByIdOrNull(memberId)
-                ?: throw MyException(ErrorCode.NOT_EXIST_MEMBER)
+            ?: throw MyException(ErrorCode.NOT_EXIST_MEMBER)
         findMember.changeInfo(requestDTO)
         return findMember.toResponseDTO()
     }
