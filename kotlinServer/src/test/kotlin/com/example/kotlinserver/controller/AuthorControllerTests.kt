@@ -1,9 +1,8 @@
 package com.example.kotlinserver.controller
 
-import com.example.kotlinserver.domain.Gender
+import com.example.kotlinserver.domain.member.Gender
 import com.example.kotlinserver.dto.author.AuthorDTO
 import com.example.kotlinserver.dto.author.BookDTO
-import com.example.kotlinserver.repository.AuthorRepository
 import com.example.kotlinserver.service.author.AuthorService
 import com.example.kotlinserver.util.ApiResponse
 import com.fasterxml.jackson.databind.ObjectMapper

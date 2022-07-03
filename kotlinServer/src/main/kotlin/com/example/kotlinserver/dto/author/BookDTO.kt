@@ -1,6 +1,6 @@
 package com.example.kotlinserver.dto.author
 
-import com.example.kotlinserver.domain.Book
+import com.example.kotlinserver.domain.author.Book
 
 data class BookDTO(
     val id: String,

@@ -1,5 +1,6 @@
-package com.example.kotlinserver.domain
+package com.example.kotlinserver.domain.member
 
+import com.example.kotlinserver.domain.util.BaseEntity
 import com.example.kotlinserver.dto.member.MemberDTO
 import com.example.kotlinserver.dto.member.response.MemberResponseDTO
 import javax.persistence.Entity

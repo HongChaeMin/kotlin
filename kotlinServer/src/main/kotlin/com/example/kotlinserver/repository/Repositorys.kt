@@ -1,8 +1,8 @@
 package com.example.kotlinserver.repository
 
 import com.example.kotlinserver.domain.Article
-import com.example.kotlinserver.domain.Author
-import com.example.kotlinserver.domain.Member
+import com.example.kotlinserver.domain.author.Author
+import com.example.kotlinserver.domain.member.Member
 import org.springframework.data.jpa.repository.JpaRepository
 import java.util.Optional
 

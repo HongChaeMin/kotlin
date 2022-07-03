@@ -1,7 +1,7 @@
 package com.example.kotlinserver.dto.author
 
-import com.example.kotlinserver.domain.Author
-import com.example.kotlinserver.domain.Gender
+import com.example.kotlinserver.domain.author.Author
+import com.example.kotlinserver.domain.member.Gender
 
 data class AuthorDTO(
     val id: Long?,

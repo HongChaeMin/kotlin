@@ -1,8 +1,8 @@
 package com.example.kotlinserver.repository
 
-import com.example.kotlinserver.domain.Author
-import com.example.kotlinserver.domain.Book
-import com.example.kotlinserver.domain.Gender
+import com.example.kotlinserver.domain.author.Author
+import com.example.kotlinserver.domain.author.Book
+import com.example.kotlinserver.domain.member.Gender
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test

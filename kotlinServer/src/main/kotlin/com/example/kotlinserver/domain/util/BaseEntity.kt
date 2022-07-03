@@ -1,4 +1,4 @@
-package com.example.kotlinserver.domain
+package com.example.kotlinserver.domain.util
 
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.LastModifiedDate

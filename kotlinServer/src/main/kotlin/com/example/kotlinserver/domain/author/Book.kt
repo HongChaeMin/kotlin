@@ -1,4 +1,4 @@
-package com.example.kotlinserver.domain
+package com.example.kotlinserver.domain.author
 
 import com.example.kotlinserver.dto.author.BookDTO
 import java.util.UUID

@@ -1,6 +1,6 @@
 package com.example.kotlinserver.service
 
-import com.example.kotlinserver.domain.Gender
+import com.example.kotlinserver.domain.member.Gender
 import com.example.kotlinserver.dto.author.AuthorDTO
 import com.example.kotlinserver.dto.author.BookDTO
 import com.example.kotlinserver.repository.AuthorRepository

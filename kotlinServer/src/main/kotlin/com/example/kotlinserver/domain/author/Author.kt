@@ -1,5 +1,7 @@
-package com.example.kotlinserver.domain
+package com.example.kotlinserver.domain.author
 
+import com.example.kotlinserver.domain.member.Gender
+import com.example.kotlinserver.domain.util.BaseEntity
 import com.example.kotlinserver.dto.author.AuthorDTO
 import com.example.kotlinserver.dto.author.BookDTO
 import com.vladmihalcea.hibernate.type.json.JsonType

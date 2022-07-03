@@ -1,7 +1,7 @@
 package com.example.kotlinserver.dto.member
 
-import com.example.kotlinserver.domain.Gender
-import com.example.kotlinserver.domain.Member
+import com.example.kotlinserver.domain.member.Gender
+import com.example.kotlinserver.domain.member.Member
 
 data class MemberDTO(
     val userNickName: String,
