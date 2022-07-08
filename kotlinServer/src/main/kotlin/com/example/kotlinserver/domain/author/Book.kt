@@ -3,7 +3,7 @@ package com.example.kotlinserver.domain.author
 import com.example.kotlinserver.dto.author.BookDTO
 import java.util.UUID
 
-data class Book(
+class Book(
     var id: String = automaticNumbering(),
     val title: String,
     val price: Int,

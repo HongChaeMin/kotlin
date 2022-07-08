@@ -23,7 +23,6 @@ class AuthorControllerTests(
     @Autowired val authorService: AuthorService
 ) {
 
-
     // 통합 테스트
 
     @BeforeEach

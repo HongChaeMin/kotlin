@@ -42,6 +42,10 @@ class Member(
     }
 }
 
+enum class Gender {
+    FEMALE, MALE
+}
+
 @Mapper
 interface MemberMapper {
     fun toMemberResponseDTO(member: Member): MemberResponseDTO
