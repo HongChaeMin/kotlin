@@ -2,9 +2,9 @@ package com.example.kotlinserver.dto.member.response
 
 import com.example.kotlinserver.domain.member.Gender
 
-class MemberResponseDTO(
+data class MemberResponseDTO(
     val id: Long?,
-    val userNickName: String,
-    val age: Int,
-    val gender: Gender
+    val userNickName: String?,
+    val age: Int?,
+    val gender: Gender?
 )

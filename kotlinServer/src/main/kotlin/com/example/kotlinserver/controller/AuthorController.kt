@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController
 class AuthorController(private val authorService: AuthorService) {
 
     @GetMapping(value = ["/authors"], produces = ["application/json"])
-    fun findAuthors(): ApiResponse<List<AuthorDTO>> {
+    fun findAuthors(): Success<List<AuthorDTO>> {
         val findAuthors = authorService.findAuthors()
         return Success(findAuthors, "작가 & 책 목록들입니다.")
     }

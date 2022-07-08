@@ -26,6 +26,9 @@ plugins {
     kotlin("plugin.spring") version "1.6.21"
     kotlin("plugin.jpa") version "1.6.21"
     kotlin("plugin.allopen") version "1.4.32"
+
+    // mapStruct
+    kotlin("kapt") version "1.6.21"
 }
 
 group = "com.example"
@@ -42,6 +45,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-mustache")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("org.projectlombok:lombok:1.18.20")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 
@@ -66,6 +70,11 @@ dependencies {
 
     // JPA - JSON in MySQL, message converter
     implementation("com.vladmihalcea:hibernate-types-52:2.16.2")
+
+    // MapStruct
+    implementation("org.mapstruct:mapstruct:1.5.1.Final")
+    kapt("org.mapstruct:mapstruct-processor:1.5.1.Final")
+    kaptTest("org.mapstruct:mapstruct-processor:1.5.1.Final")
 }
 
 allOpen {

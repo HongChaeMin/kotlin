@@ -31,6 +31,15 @@ class AuthorRepositoryTests(
 
     @Test
     fun `author json save test`() {
+
+        /*every {  } returns listOf<>()
+        every {  } just Runs
+        every {  } throws Illega()
+
+        invoking{ } shouldThrow ser()
+
+        verify(exactly = 1) {  aaa.xxx() }*/
+
         val author = Author(name = "name", gender = Gender.FEMALE, age = 20, books = books)
         authorRepository.save(author)
     }
