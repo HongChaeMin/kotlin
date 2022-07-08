@@ -1,4 +1,4 @@
-package com.example.kotlinserver.service
+package com.example.kotlinserver.mapper
 
 import com.example.kotlinserver.domain.member.Gender
 import com.example.kotlinserver.domain.member.Member
@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class MemberServiceTests(
+class MemberMapStructTests(
     @Autowired val memberRepository: MemberRepository
 ) {
 
