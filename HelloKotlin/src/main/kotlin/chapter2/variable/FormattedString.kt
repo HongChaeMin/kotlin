@@ -1,7 +1,5 @@
 package chapter2.variable
 
-import kotlin.reflect.typeOf
-
 fun main() {
     val num = 10
     val formattedString = """
