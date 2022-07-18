@@ -22,6 +22,9 @@ plugins {
     // https://github.com/JLLeitschuh/ktlint-gradle/issues/562
     id("org.jlleitschuh.gradle.ktlint") version "10.2.1"
 
+    // sonarqube
+    id("org.sonarqube") version "3.4.0.2513"
+
     kotlin("jvm") version "1.6.21"
     kotlin("plugin.spring") version "1.6.21"
     kotlin("plugin.jpa") version "1.6.21"
@@ -33,7 +36,7 @@ plugins {
 
 group = "com.example"
 version = "5.3.1"
-java.sourceCompatibility = JavaVersion.VERSION_17
+java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
     mavenCentral()
@@ -88,7 +91,7 @@ allOpen {
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget = "17"
+        jvmTarget = "11"
     }
 }
 
