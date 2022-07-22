@@ -46,7 +46,7 @@ class MemberServiceImpl(private val memberRepository: MemberRepository) : Member
     }
 
     private fun checkUserNickname(userNickname: String) {
-        if (!memberRepository.findByUserNickName(userNickname).isEmpty)
+        if (memberRepository.findByUserNickName(userNickname).isEmpty)
             throw MyException(ErrorCode.EXIST_NICK_NAME)
     }
 }

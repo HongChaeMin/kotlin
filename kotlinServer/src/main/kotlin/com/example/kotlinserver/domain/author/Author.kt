@@ -16,7 +16,7 @@ import javax.persistence.Id
 
 @Entity
 @TypeDef(name = "json", typeClass = JsonType::class)
-class Author(
+data class Author(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
     val name: String,
@@ -28,6 +28,10 @@ class Author(
     var books: List<Book>
 
 ) : BaseEntity() {
+
+    fun addBook(book: Book) {
+        books = books.plus(book)
+    }
 
     fun toAuthorDto(): AuthorDTO {
         return AuthorDTO(

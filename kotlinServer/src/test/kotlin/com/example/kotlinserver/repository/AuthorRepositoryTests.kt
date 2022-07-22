@@ -45,6 +45,22 @@ class AuthorRepositoryTests(
     }
 
     @Test
+    fun `찾아서 더하기`() {
+        val author = Author(name = "name", gender = Gender.FEMALE, age = 20, books = books)
+        authorRepository.save(author)
+
+        val authorFind = authorRepository.findByName("name").get();
+
+        authorFind.addBook(Book("sp", "spTitle", 999999999))
+        authorRepository.save(authorFind)
+
+        for (a in authorRepository.findAll()) {
+            println(":::::::::::::::::::$a")
+        }
+
+    }
+
+    @Test
     fun `author json find test`() {
         for (author in authorRepository.findAll()) {
             println("author : ${author.toAuthorDto()}")
