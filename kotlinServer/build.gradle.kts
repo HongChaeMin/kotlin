@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript {
@@ -77,6 +79,11 @@ dependencies {
     implementation("org.mapstruct:mapstruct:1.5.1.Final")
     kapt("org.mapstruct:mapstruct-processor:1.5.1.Final")
     kaptTest("org.mapstruct:mapstruct-processor:1.5.1.Final")
+
+    // querydsl
+    implementation("com.querydsl:querydsl-jpa:5.0.0")
+    kapt("com.querydsl:querydsl-apt:5.0.0:jpa")
+    kapt("org.springframework.boot:spring-boot-configuration-processor")
 }
 
 allOpen {
@@ -97,4 +104,9 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+// querydsl
+sourceSets["main"].withConvention(org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet::class) {
+    kotlin.srcDir("$buildDir/generated/source/kapt/main")
 }

@@ -8,6 +8,7 @@ import java.util.Optional
 
 interface MemberRepository : JpaRepository<Member, Long> {
     fun findByUserNickName(userNickName: String): Optional<Member>
+    fun findByIdIsIn(id: List<Long>): List<Member>
 }
 
 interface AuthorRepository : JpaRepository<Author, Long> {

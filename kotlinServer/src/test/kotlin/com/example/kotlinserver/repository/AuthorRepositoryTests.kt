@@ -49,7 +49,7 @@ class AuthorRepositoryTests(
         val author = Author(name = "name", gender = Gender.FEMALE, age = 20, books = books)
         authorRepository.save(author)
 
-        val authorFind = authorRepository.findByName("name").get();
+        val authorFind = authorRepository.findByName("name").get()
 
         authorFind.addBook(Book("sp", "spTitle", 999999999))
         authorRepository.save(authorFind)
@@ -57,7 +57,6 @@ class AuthorRepositoryTests(
         for (a in authorRepository.findAll()) {
             println(":::::::::::::::::::$a")
         }
-
     }
 
     @Test

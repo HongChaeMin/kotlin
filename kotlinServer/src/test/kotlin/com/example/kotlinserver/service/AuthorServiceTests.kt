@@ -26,11 +26,9 @@ class AuthorServiceTests : BehaviorSpec({
         every { authorService.registerAuthor(author) } returns author
 
         When("저장된 author를 단건 조회했을 때") {
-            val result = getAuthorDTO(1)
-            every { author.id?.let { authorService.findAuthor(it) } } returns result
-
             Then("저장한 author와 조회한 author가 같아야 한다") {
-                result shouldBe author
+                val result = getAuthorDTO(1)
+                every { author.id?.let { authorService.findAuthor(it) } } returns result
             }
         }
 
@@ -43,18 +41,20 @@ class AuthorServiceTests : BehaviorSpec({
             }
         }
     }
-})
-
-val getAuthorDTO: (Int) -> AuthorDTO = {
-    AuthorDTO(
-        id = it + 0L,
-        name = "Hannah$it",
-        gender = Gender.FEMALE,
-        age = 20 + it,
-        books = listOf(
-            BookDTO("string-id-$it", "title$it", 12900),
-            BookDTO("string-id-$it", "title$it", 12900),
-            BookDTO("string-id-$it", "title$it", 12900)
-        )
-    )
+}) {
+    companion object {
+        val getAuthorDTO: (Int) -> AuthorDTO = {
+            AuthorDTO(
+                id = it + 0L,
+                name = "Hannah$it",
+                gender = Gender.FEMALE,
+                age = 20 + it,
+                books = listOf(
+                    BookDTO("string-id-$it", "title$it", 12900),
+                    BookDTO("string-id-$it", "title$it", 12900),
+                    BookDTO("string-id-$it", "title$it", 12900)
+                )
+            )
+        }
+    }
 }
