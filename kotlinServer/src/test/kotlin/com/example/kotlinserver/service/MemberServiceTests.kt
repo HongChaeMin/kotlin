@@ -12,7 +12,7 @@ import io.mockk.clearAllMocks
 import io.mockk.every
 import io.mockk.mockk
 
-class MemberServiceTests: BehaviorSpec({
+class MemberServiceTests : BehaviorSpec({
 
     afterContainer {
         clearAllMocks()
@@ -54,11 +54,10 @@ class MemberServiceTests: BehaviorSpec({
                 memberDTO.userNickName shouldBe memberResponseDTO.userNickName
                 memberDTO.age shouldBe memberResponseDTO.age
             }
-
         }
     }
-
-}) {
+}
+) {
     companion object {
         private fun getMemberDTO(i: Int): MemberDTO {
             return MemberDTO("nickname$i", 20 + i, Gender.FEMALE)
@@ -76,5 +75,3 @@ class MemberServiceTests: BehaviorSpec({
         }
     }
 }
-
-
