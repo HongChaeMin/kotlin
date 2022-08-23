@@ -1,4 +1,4 @@
-package chpater6
+package chapter6
 
 // 주 생성자에 3개의 매개변수 정의
 class User(_id: Int, _name: String, _age: Int) {

@@ -1,4 +1,4 @@
-package chpater6.exLateinit
+package chapter6.exLateinit
 
 class Person {
     lateinit var name: String // ① 지연 초기화를 위한 선언

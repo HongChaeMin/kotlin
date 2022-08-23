@@ -1,4 +1,4 @@
-package chpater6.customproperty
+package chapter6.customproperty
 
 class User(_id: Int, _name: String, _age: Int) {
     val id: Int = _id

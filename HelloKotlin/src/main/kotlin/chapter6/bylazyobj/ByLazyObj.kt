@@ -1,4 +1,4 @@
-package chpater6.bylazyobj
+package chapter6.bylazyobj
 
 class Person(val name: String, val age: Int)
 

@@ -1,4 +1,4 @@
-package chpater6
+package chapter6
 
 // ① object 키워드를 사용한 방식
 object OCustomer {

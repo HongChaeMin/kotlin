@@ -1,4 +1,4 @@
-package chpater6
+package chapter6
 
 open class Superman() {
     fun work() = println("Taking photos")

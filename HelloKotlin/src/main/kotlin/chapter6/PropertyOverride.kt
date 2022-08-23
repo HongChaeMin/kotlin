@@ -1,4 +1,4 @@
-package chpater6
+package chapter6
 
 open class First {
     open val x: Int = 0 // ① 오버라이딩 가능
